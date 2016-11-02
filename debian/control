@@ -1,0 +1,18 @@
+Source: sysrepo
+Priority: optional
+Maintainer: Jan Kundrát <jan.kundrat@cesnet.cz>
+Build-Depends: debhelper (>= 9), cmake, libyang-dev, libev-dev, libavl-dev, protobuf-c-compiler, dh-systemd
+Standards-Version: 3.9.6
+Homepage: https://github.com/sysrepo/sysrepo
+
+Package: sysrepo-dev
+Section: libdevel
+Architecture: any
+Depends: sysrepo (= ${binary:Version}), ${misc:Depends}, ${shlibs:Depends}
+Description: sysrepo
+
+Package: sysrepo
+Section: admin
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: sysrepo

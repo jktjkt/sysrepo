@@ -1,0 +1,5 @@
+etc/sysrepo
+usr/bin
+usr/lib
+usr/share/man/man*
+var/run/sysrepo-subscriptions

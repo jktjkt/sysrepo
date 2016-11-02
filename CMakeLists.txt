@@ -1,6 +1,10 @@
 cmake_minimum_required(VERSION 2.8)
 project(sysrepo)
 set(SYSREPO_DESC "YANG-based system repository")
+include(GNUInstallDirs)
+message(STATUS "arch: ${CMAKE_LIBRARY_ARCHITECTURE}")
+message(STATUS "libdir: ${CMAKE_INSTALL_LIBDIR}")
+message(STATUS "inc: ${CMAKE_INSTALL_INCLUDEDIR}")
 
 # setup version
 set(SYSREPO_MAJOR_VERSION 0)

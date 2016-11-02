@@ -1,0 +1,5 @@
+etc/sysrepo/*
+usr/bin/*
+usr/lib/lib*.so
+usr/share/man*/*
+lib/systemd/system/*
