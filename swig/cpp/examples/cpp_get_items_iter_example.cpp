@@ -26,7 +26,7 @@
 using namespace std;
 
 void
-print_value(S_Val value)
+print_value(sysrepo::S_Val value)
 {
     cout << value->xpath();
     cout << " ";
@@ -70,13 +70,13 @@ int
 main(int argc, char **argv)
 {
     try {
-        S_Connection conn(new Connection("app3"));
+        sysrepo::S_Connection conn(new sysrepo::Connection("app3"));
 
-        S_Session sess(new Session(conn));
+        sysrepo::S_Session sess(new sysrepo::Session(conn));
 
         const char *xpath = "/ietf-interfaces:interfaces/interface//*";
 
-	auto iter = sess->get_items_iter(xpath);
+	    auto iter = sess->get_items_iter(xpath);
         if (iter == nullptr)
             return 0;
 

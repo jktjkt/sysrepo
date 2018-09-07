@@ -29,9 +29,9 @@ int
 main(int argc, char **argv)
 {
     try {
-        S_Connection conn(new Connection("app2"));
+        sysrepo::S_Connection conn(new sysrepo::Connection("app2"));
 
-        S_Session sess(new Session(conn));
+        sysrepo::S_Session sess(new sysrepo::Session(conn));
 
         const char *xpath = "/ietf-interfaces:interfaces/interface";
 
