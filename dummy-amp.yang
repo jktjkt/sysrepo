@@ -1,0 +1,128 @@
+module dummy-amp {
+
+  namespace
+    "http://example.org/cla-sysrepo/dummy-amp";
+
+  prefix "dummy-amp";
+
+  organization "CESNET";
+  contact "photonic@cesnet.cz";
+  description "Dummy testing module";
+
+  revision 2016-11-10 {
+    description "Testing";
+  }
+
+  typedef gain-dB {
+    type decimal64 {
+      fraction-digits 2;
+    }
+    description "Gain in dB";
+  }
+
+  typedef threshold-power-dBm {
+    type union {
+      type decimal64 {
+        fraction-digits 2;
+      }
+      type enumeration {
+        enum off {
+          description "No threshold configured";
+        }
+      }
+    }
+    description "Power in dBm";
+  }
+
+  typedef temperature-celsius {
+    type decimal64 {
+      fraction-digits 2;
+    }
+    description "Temperature in centigrade";
+  }
+
+  container amplifier {
+
+    container hwInfo {
+      config false;
+
+      leaf vendor {
+        type string;
+        mandatory true;
+      }
+    }
+
+    container sensors {
+      config false;
+
+      leaf case-temperature {
+        type temperature-celsius;
+        mandatory true;
+      }
+      leaf pump-on {
+        type boolean;
+        mandatory true;
+      }
+    }
+
+    leaf operation-mode {
+      type enumeration {
+        enum off {
+          description "Off mode, switched off";
+        }
+        enum ACC {
+          description "Constant current";
+        }
+        enum APC {
+          description "Constant power output";
+        }
+        enum AGC {
+          description "Automatic gain control";
+        }
+      }
+      default off;
+      description "Mode in which the amplifiers operate";
+    }
+
+    grouping amp-stage {
+      leaf agc-gain {
+        type gain-dB;
+      }
+      leaf automatic-laser-shutdown {
+        type threshold-power-dBm;
+      }
+
+      container sensors {
+        config false;
+
+        leaf gain {
+          type gain-dB;
+          mandatory true;
+        }
+
+        leaf signal-loss {
+          type boolean;
+          mandatory true;
+        }
+      }
+    }
+
+
+    container stage-1 {
+      uses amp-stage;
+    }
+
+    container stage-2 {
+      uses amp-stage;
+    }
+
+  }
+
+  notification hi-there {
+    description "Random notification";
+    leaf message-text {
+      type string;
+    }
+  }
+
+}
