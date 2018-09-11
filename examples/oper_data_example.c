@@ -140,7 +140,8 @@ data_requester(sr_session_ctx_t *session)
     int rc = SR_ERR_OK;
 
     /* get all list instances with their content (recursive) */
-    rc = sr_get_items_iter(session, "/ietf-interfaces:interfaces-state/interface//*", &iter);
+    //rc = sr_get_items_iter(session, "/ietf-interfaces:interfaces-state/interface//*", &iter);
+    rc = sr_get_items_iter(session, "/dummy-amp:amplifier//*", &iter);
     if (SR_ERR_OK != rc) {
         return rc;
     }

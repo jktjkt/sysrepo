@@ -33,7 +33,8 @@ main(int argc, char **argv)
 
         sysrepo::S_Session sess(new sysrepo::Session(conn));
 
-        const char *xpath = "/ietf-interfaces:interfaces/interface";
+        //const char *xpath = "/ietf-interfaces:interfaces/interface";
+        const char *xpath = "/dummy-amp:amplifier//*";
 
 	auto values = sess->get_items(xpath);
         if (values == nullptr)
