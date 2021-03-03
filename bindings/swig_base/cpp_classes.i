@@ -86,10 +86,6 @@
 %ignore Val_Iter::Val_Iter(sr_val_iter_t *iter);
 %ignore Val_Iter::iter();
 
-%shared_ptr(sysrepo::Change_Iter);
-%ignore Change_Iter::Change_Iter(sr_change_iter_t *iter);
-%ignore Change_Iter::iter();
-
 %shared_ptr(sysrepo::Error);
 %ignore Error::Error(const sr_error_info_t *);
 

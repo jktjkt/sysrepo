@@ -236,23 +236,6 @@ private:
 };
 
 /**
- * @brief Class for wrapping sr_change_iter_t.
- * @class Change_Iter
- */
-class Change_Iter
-{
-public:
-    /** Wrapper for [sr_change_iter_t](@ref sr_change_iter_t).*/
-    Change_Iter(sr_change_iter_t *iter = nullptr);
-    ~Change_Iter();
-    /** Getter for [sr_change_iter_t](@ref sr_change_iter_t).*/
-    sr_change_iter_t *iter() {return _iter;};
-
-private:
-    sr_change_iter_t *_iter;
-};
-
-/**
  * @brief Class for wrapping sr_error_info_t.
  * @class Errors
  */
@@ -288,6 +271,8 @@ public:
     /** Wrapper for [sr_change_iter_t](@ref sr_change_iter_t).*/
     Iter_Change(sr_change_iter_t *iter = nullptr);
     ~Iter_Change();
+    /** Getter for [sr_change_iter_t](@ref sr_change_iter_t).*/
+    sr_change_iter_t *iter() {return _iter;};
 
     friend class Session;
 

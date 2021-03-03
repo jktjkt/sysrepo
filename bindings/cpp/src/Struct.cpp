@@ -505,10 +505,6 @@ S_Vals Vals_Holder::reallocate(size_t n) {
 }
 Vals_Holder::~Vals_Holder() {}
 
-// Change_Iter
-Change_Iter::Change_Iter(sr_change_iter_t *iter) {_iter = iter;}
-Change_Iter::~Change_Iter() {}
-
 // Errors
 Errors::Errors() {_info = nullptr;}
 Errors::~Errors() {}
